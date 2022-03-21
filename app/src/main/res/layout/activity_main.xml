@@ -13,7 +13,7 @@
         android:id="@+id/Namegame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-medium"
+        android:fontFamily="@font/ri0"
         android:gravity="center_horizontal"
         android:text="Fiesta"
         android:textColor="@color/orange"
@@ -25,18 +25,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.101" />
 
-    <Button
+    <ImageButton
         android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background=""
+        android:layout_width="250dp"
+        android:layout_height="90dp"
+        android:background="@drawable/play"
         android:contentDescription="@null"
         android:text="Button1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Namegame"
-        app:layout_constraintVertical_bias="0.189" />
+        app:layout_constraintVertical_bias="0.129" />
 
     <TextView
         android:id="@+id/textView2"
@@ -94,6 +95,7 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:text="Тема игры"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -110,6 +112,9 @@
         android:layout_height="wrap_content"
         android:text="Музыка"
         android:textColor="@color/white"
+
+
+
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
