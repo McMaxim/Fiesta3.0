@@ -3,8 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidProject/Fiesta3.0/app/src/main/res/layout/activity_main.xml" value="0.30885416666666665" />
+        <entry key="..\:/AndroidProject/Fiesta3.0/app/src/main/res/layout/banan.xml" value="0.15416666666666667" />
+        <entry key="..\:/AndroidProject/Fiesta3.0/app/src/main/res/layout/banan1.xml" value="0.15416666666666667" />
         <entry key="..\:/AndroidProject/Fiesta30/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/AndroidProject/Fiesta30/app/src/main/res/layout/banan.xml" value="0.29907407407407405" />
+        <entry key="..\:/Users/Student/AndroidStudioProjects/Fiesta3.0/app/src/main/res/drawable/ic_baseline_arrow_back_ios_24.xml" value="0.1" />
+        <entry key="..\:/Users/Student/AndroidStudioProjects/Fiesta3.0/app/src/main/res/drawable/ic_baseline_arrow_forward_ios_24.xml" value="0.1" />
+        <entry key="..\:/Users/Student/AndroidStudioProjects/Fiesta3.0/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/Student/AndroidStudioProjects/Fiesta3.0/app/src/main/res/layout/banan.xml" value="0.1" />
+        <entry key="..\:/Users/Student/AndroidStudioProjects/Fiesta3.0/app/src/main/res/layout/banan1.xml" value="0.18802083333333333" />
       </map>
     </option>
   </component>
