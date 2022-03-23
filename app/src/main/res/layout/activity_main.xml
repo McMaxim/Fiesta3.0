@@ -67,7 +67,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.098" />
-<<<<<<< HEAD
 
     <ImageButton
         android:id="@+id/rightbutton"
@@ -77,17 +76,6 @@
         android:background="@drawable/ic_baseline_arrow_forward_ios_24"
         android:text=""
 
-=======
-
-    <Button
-        android:id="@+id/rightbutton"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-
-        android:background="@drawable/ic_baseline_arrow_forward_ios_24"
-        android:text=""
-
->>>>>>> 03539c172ef2ea36d3cd3dc0d66d5c2150112ffa
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textView3"
         app:layout_constraintHorizontal_bias="0.202"
@@ -119,11 +107,7 @@
         android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-<<<<<<< HEAD
         app:layout_constraintHorizontal_bias="0.216"
-=======
-        app:layout_constraintHorizontal_bias="0.262"
->>>>>>> 03539c172ef2ea36d3cd3dc0d66d5c2150112ffa
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.416" />
@@ -140,11 +124,7 @@
         android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-<<<<<<< HEAD
         app:layout_constraintHorizontal_bias="0.208"
-=======
-        app:layout_constraintHorizontal_bias="0.241"
->>>>>>> 03539c172ef2ea36d3cd3dc0d66d5c2150112ffa
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:layout_constraintVertical_bias="0.476" />
@@ -160,7 +140,6 @@
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:layout_constraintVertical_bias="0.503" />
-<<<<<<< HEAD
 
     <Spinner
         android:id="@+id/themes"
@@ -175,7 +154,5 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         app:layout_constraintVertical_bias="0.465" />
 
-=======
->>>>>>> 03539c172ef2ea36d3cd3dc0d66d5c2150112ffa
 
 </androidx.constraintlayout.widget.ConstraintLayout>
