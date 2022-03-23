@@ -70,5 +70,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 03539c172ef2ea36d3cd3dc0d66d5c2150112ffa
 }
