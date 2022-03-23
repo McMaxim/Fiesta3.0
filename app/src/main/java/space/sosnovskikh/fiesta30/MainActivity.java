@@ -5,12 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener  {
     TextView textView3;
@@ -18,7 +20,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ImageButton leftbutton;
     ImageButton rightbutton;
     Switch switch1;
-    Integer a = 0;
+
+    public static Integer a = 0;
     int[] myArray = new int[5];
     String[] themes = {"фильмы","работа","хобби","домашние животные","путешествие","спорт"};
 
@@ -38,9 +41,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         rightbutton = findViewById(R.id.rightbutton);
         rightbutton.setOnClickListener(this);
         ArrayAdapter<String> themesAdapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, themes);
-        themesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        themesAdapter.setDropDownViewResource(R.layout.aerg);
         Spinner spthemes = (Spinner) findViewById(R.id.themes);
         spthemes.setAdapter(themesAdapter);
+        spthemes.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                ((TextView) parent.getChildAt(0)).setTextColor(getColor(R.color.white));
+                ((TextView) parent.getChildAt(0)).setTextSize(20);
+                ((TextView) parent.getChildAt(0)).setFontFeatureSettings("ri0");
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
 
         myArray[0] = 2;
@@ -54,13 +71,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch(v.getId()){
             case R.id.leftbutton:
                 a -= 1;
-                textView3.setText(myArray[a%5]);
+                if (a==-1){
+                    a = 4;
+                }
+                textView3.setText(String.valueOf(myArray[a%5]));
+                break;
             case R.id.rightbutton:
                 a += 1;
-                textView3.setText(myArray[a%5]);
+                textView3.setText(String.valueOf(myArray[a%5]));
+                break;
             case R.id.playbutton:
                 Intent intent = new Intent(this,Banana1.class);
                 startActivity(intent);
+                finish();
+                break;
 
 
 
