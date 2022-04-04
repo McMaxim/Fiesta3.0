@@ -14,8 +14,8 @@ public class Banana1 extends AppCompatActivity {
         setContentView(R.layout.banan1);
         //MainActivity.a
     //я могу обращаться к ней
-        ArrayList<S> people = new ArrayList<>();
-        people.add(String[] themes = {"фильмы","работа","хобби","домашние животные","путешествие","спорт"};);
+        //ArrayList<S> people = new ArrayList<>();
+        //people.add(String[] themes = {"фильмы","работа","хобби","домашние животные","путешествие","спорт"};);
 
 }}
 

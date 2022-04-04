@@ -3,16 +3,16 @@ package space.sosnovskikh.fiesta30;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener  {
     TextView textView3;
@@ -44,12 +44,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         themesAdapter.setDropDownViewResource(R.layout.aerg);
         Spinner spthemes = (Spinner) findViewById(R.id.themes);
         spthemes.setAdapter(themesAdapter);
+
+
         spthemes.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 ((TextView) parent.getChildAt(0)).setTextColor(getColor(R.color.white));
                 ((TextView) parent.getChildAt(0)).setTextSize(20);
-                ((TextView) parent.getChildAt(0)).setFontFeatureSettings("ri0");
+                Typeface type = Typeface.createFromAsset(getAssets(),"fonts/ri00.ttf");
+                ((TextView) parent.getChildAt(0)).setTypeface(type);
+                //как сделать шрифт в спиннере
 
             }
 

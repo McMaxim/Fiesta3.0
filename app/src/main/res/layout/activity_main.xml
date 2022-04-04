@@ -154,6 +154,7 @@
         android:spinnerMode="dialog"
 
 
+
         app:layout_constraintBottom_toTopOf="@+id/switch1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.567"
