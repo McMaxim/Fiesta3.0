@@ -143,11 +143,17 @@
         android:spinnerMode="dialog"
 
 
+<<<<<<< HEAD
         app:layout_constraintBottom_toBottomOf="parent"
+=======
+
+        app:layout_constraintBottom_toTopOf="@+id/switch1"
+>>>>>>> ffa538567572996ba8e30cd53c7e00200fc7a7e4
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.567"
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
+<<<<<<< HEAD
         app:layout_constraintVertical_bias="0.267" />
 
     <ImageButton
@@ -174,6 +180,9 @@
         app:layout_constraintTop_toBottomOf="@+id/themes"
         app:layout_constraintVertical_bias="0.469"
         app:srcCompat="@android:drawable/ic_media_pause" />
+=======
+        app:layout_constraintVertical_bias="0.387" />
+>>>>>>> ffa538567572996ba8e30cd53c7e00200fc7a7e4
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
