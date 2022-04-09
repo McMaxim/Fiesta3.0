@@ -11,7 +11,7 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 
 public class MyService extends MainActivity {
-    //вопрос по extends
+    //Если музыка работает,то можно убрать.
     Switch switch1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

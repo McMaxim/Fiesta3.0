@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="myFontStyle" parent="@style/TextAppearance.AppCompat.Small">
+        <item name="fontFamily">@font/my_font</item>
+    </style>
+
+</resources>
