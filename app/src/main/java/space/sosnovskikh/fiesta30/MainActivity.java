@@ -4,10 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Typeface;
-<<<<<<< HEAD
 import android.media.MediaPlayer;
-=======
->>>>>>> ffa538567572996ba8e30cd53c7e00200fc7a7e4
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -19,21 +16,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener  {
     TextView textView3;
     ImageButton playbutton;
     ImageButton leftbutton;
     ImageButton rightbutton;
-<<<<<<< HEAD
     ImageButton play;
     ImageButton stop;
     Spinner spinner;
 
     MediaPlayer mPlayer;
-=======
-    Switch switch1;
->>>>>>> ffa538567572996ba8e30cd53c7e00200fc7a7e4
 
     public static Integer a = 0;
     int[] myArray = new int[5];
@@ -54,7 +46,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         leftbutton.setOnClickListener(this);
         rightbutton = findViewById(R.id.rightbutton);
         rightbutton.setOnClickListener(this);
-<<<<<<< HEAD
         //ArrayAdapter<String> themesAdapter = new ArrayAdapter<>(this,R.layout.simple_spinner_item, themes);
         //themesAdapter.setDropDownViewResource(R.layout.aerg);
         //Spinner spthemes = (Spinner)findViewById(R.id.themes);
@@ -77,30 +68,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //как сделать шрифт в спиннере
 
 
-=======
-        ArrayAdapter<String> themesAdapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, themes);
-        themesAdapter.setDropDownViewResource(R.layout.aerg);
-        Spinner spthemes = (Spinner) findViewById(R.id.themes);
-        spthemes.setAdapter(themesAdapter);
->>>>>>> ffa538567572996ba8e30cd53c7e00200fc7a7e4
-
-
-        spthemes.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                ((TextView) parent.getChildAt(0)).setTextColor(getColor(R.color.white));
-                ((TextView) parent.getChildAt(0)).setTextSize(20);
-                Typeface type = Typeface.createFromAsset(getAssets(),"fonts/ri00.ttf");
-                ((TextView) parent.getChildAt(0)).setTypeface(type);
-                //как сделать шрифт в спиннере
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
 
 
         myArray[0] = 2;
