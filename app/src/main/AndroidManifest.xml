@@ -24,10 +24,6 @@
 
         </activity>
         <activity
-            android:name=".MyService">
-
-        </activity>
-        <activity
             android:name=".banana">
 
         </activity>

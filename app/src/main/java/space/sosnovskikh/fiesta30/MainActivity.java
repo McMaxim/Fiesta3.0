@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         playbutton = findViewById(R.id.playbutton);
         playbutton.setOnClickListener(this);
-        startService(new Intent(this, MyService.class)); //вот єто вам нужно написать!!!!!!
+
 
         textView3 = findViewById(R.id.textView3);
         textView3.setOnClickListener(this);
@@ -46,29 +47,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         leftbutton.setOnClickListener(this);
         rightbutton = findViewById(R.id.rightbutton);
         rightbutton.setOnClickListener(this);
-        //ArrayAdapter<String> themesAdapter = new ArrayAdapter<>(this,R.layout.simple_spinner_item, themes);
-        //themesAdapter.setDropDownViewResource(R.layout.aerg);
-        //Spinner spthemes = (Spinner)findViewById(R.id.themes);
-        //spthemes.setAdapter(themesAdapter);
+
         String[] list = getResources().getStringArray(R.array.list);
         spinner = findViewById(R.id.themes);
         ArrayAdapter<String> themesAdapter = new ArrayAdapter<>(this,R.layout.spinner_row, list);
         spinner.setAdapter(themesAdapter);
-
-
-
-
-        //spthemes.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            //@Override
-            //public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                //((TextView) parent.getChildAt(0)).setTextColor(getColor(R.color.white));
-                //((TextView) parent.getChildAt(0)).setTextSize(20);
-                //Typeface type = Typeface.createFromAsset(getAssets(),"fonts/ri00.ttf");
-                //((TextView) parent.getChildAt(0)).setTypeface(type);
-                //как сделать шрифт в спиннере
-
-
-
 
         myArray[0] = 2;
         myArray[1] = 3;
@@ -80,14 +63,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onCompletion(MediaPlayer mp) {
                 stopPlay();
+                play();
             }
         });
         play = findViewById(R.id.play);
-
         stop = findViewById(R.id.stop);
         stop.setEnabled(false);
+        play.setOnClickListener(this);
+        stop.setOnClickListener(this);
+        play();
+
+        ArrayAdapter<String> a = new ArrayAdapter<>(this,R.layout.spinner_row, themes);
+        a.setDropDownViewResource(R.layout.aerg);
+        Spinner spthemes = (Spinner)findViewById(R.id.themes);
+        spthemes.setAdapter(a);
+
+        spthemes.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                ((TextView) parent.getChildAt(0)).setTextColor(getColor(R.color.white));
+                ((TextView) parent.getChildAt(0)).setTextSize(40);
+                ((TextView) parent.getChildAt(0)).setGravity(Gravity.CENTER);
+                Typeface type = Typeface.createFromAsset(getAssets(), "fonts/ri00.ttf");
+                ((TextView) parent.getChildAt(0)).setTypeface(type);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
-    private void stopPlay(){
+
+
+        private void stopPlay(){
         mPlayer.stop();
 
         stop.setEnabled(false);
@@ -100,19 +109,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(this, t.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
-    public void play(View view){
+    public void play(){
 
         mPlayer.start();
         play.setEnabled(false);
         stop.setEnabled(true);
     }
-    public void pause(View view){
+    public void pause(){
 
         mPlayer.pause();
         play.setEnabled(true);
         stop.setEnabled(true);
     }
-    public void stop(View view){
+    public void stop(){
         stopPlay();
     }
     @Override
@@ -143,14 +152,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 finish();
                 break;
-
-
-
+            case R.id.play: {
+                play();
+                break;
+            }
+            case R.id.stop: {
+                stop();
+                break;
+            }
         }
-
-
-
-
     }
 
 }
