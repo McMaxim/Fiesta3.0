@@ -28,7 +28,7 @@
         android:ems="10"
         android:fontFamily="@font/ri0"
         android:inputType="textPersonName"
-        android:text="5t5y"
+        android:text=""
         android:textColor="@color/white"
         android:textSize="48sp"
         android:textAlignment="center"

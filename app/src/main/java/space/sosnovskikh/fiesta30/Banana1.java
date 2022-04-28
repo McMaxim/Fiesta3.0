@@ -3,6 +3,7 @@ package space.sosnovskikh.fiesta30;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,10 +22,10 @@ public class Banana1 extends AppCompatActivity  {
     TextView text;
     Button button;
     List list =  new ArrayList<Integer>();
-    public static List tema = new ArrayList<String>();
-    public static List end= new ArrayList<String>();
-    static int x = 1;
-    static int w = 1;
+    public static List<String> tema = new ArrayList<String>();
+    public static List<String> end= new ArrayList<String>();
+    static int x = 0;
+    static int w = 0;
     static int them;
     static final String[] wetkafilm = {"фильм",
             "кинотеатр",
@@ -629,6 +630,11 @@ public class Banana1 extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.banan1);
+        end.add("0");
+        end.add("0");
+        end.add("0");
+        end.add("0");
+        end.add("0");
         edit = findViewById(R.id.edit);
         text = findViewById(R.id.view);
         button = findViewById(R.id.button);
@@ -735,7 +741,7 @@ public class Banana1 extends AppCompatActivity  {
                 }
 
             }
-        text.setText((Integer) tema.get(w / 5));
+        text.setText( tema.get(w / 5));
 
 
 
@@ -746,16 +752,20 @@ public class Banana1 extends AppCompatActivity  {
             @Override
             public void onClick(View view) {
                 if (w<(MainActivity.a)*5) {
-                    if (x < MainActivity.a && x != 0) {
+                    if (x < (MainActivity.a -1)) {
+                        Log.d("my", "onClick: 0");
                         swap();
                         x++;
                     }
-                    else if (x % 5 == 0) {
+                    else if (x % (MainActivity.a-1) == 0) {
                         x = 0;
+                        Log.d("my", "onClick: 1");
                         edit.setText("");
                         end.set(w / 5, edit.getText().toString());
-                        text.setText((Integer) tema.get(w / 5));
+
+                        text.setText( tema.get(w /(MainActivity.a-1)));
                     }
+                    Log.d("my", "onClick: 2");
                     w++;
                 }
                 else{
@@ -763,7 +773,7 @@ public class Banana1 extends AppCompatActivity  {
                     Intent intent = new Intent(Banana1.this,Osnova.class);
                     //пройдет?
                     startActivity(intent);
-                    finish();
+
 
 
                     }

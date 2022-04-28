@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     MediaPlayer mPlayer;
 
-    public static Integer a = 0;
+    public static Integer a = 2;
     int[] myArray = new int[5];
     static final String[] themes = {"фильмы","работа","хобби","домашние животные","путешествие","спорт"};
 
@@ -155,7 +155,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Intent intent = new Intent(this,Banana1.class);
                 startActivity(intent);
-                finish();
                 break;
             case R.id.play: {
                 play();
