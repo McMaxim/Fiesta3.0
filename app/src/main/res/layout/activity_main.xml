@@ -20,7 +20,7 @@
         android:fontFamily="@font/ri0"
         android:gravity="center_horizontal"
         android:text="Fiesta"
-        android:textColor="@color/orange"
+        android:textColor="@color/c4"
         android:textSize="100sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

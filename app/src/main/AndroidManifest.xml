@@ -24,7 +24,12 @@
 
         </activity>
         <activity
-            android:name=".banana">
+            android:name=".Final">
+
+        </activity>
+        <activity
+            android:name=".Osnova">
+
 
         </activity>
     </application>

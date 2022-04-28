@@ -25,13 +25,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ImageButton play;
     ImageButton stop;
     Spinner spinner;
+   static int num;
 
     MediaPlayer mPlayer;
 
     public static Integer a = 0;
     int[] myArray = new int[5];
-    String[] themes = {"фильмы","работа","хобби","домашние животные","путешествие","спорт"};
+    static final String[] themes = {"фильмы","работа","хобби","домашние животные","путешествие","спорт"};
 
+    static int getThemes() {
+        return  num;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +90,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 ((TextView) parent.getChildAt(0)).setGravity(Gravity.CENTER);
                 Typeface type = Typeface.createFromAsset(getAssets(), "fonts/ri00.ttf");
                 ((TextView) parent.getChildAt(0)).setTypeface(type);
+                num = (int)id;
             }
 
             @Override
