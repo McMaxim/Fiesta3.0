@@ -142,14 +142,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch(v.getId()){
             case R.id.leftbutton:
                 a -= 1;
-                if (a==-1){
-                    a = 4;
+                if (a==1){
+                    a = 6;
                 }
-                textView3.setText(String.valueOf(myArray[a%5]));
+                textView3.setText(String.valueOf(a));
                 break;
             case R.id.rightbutton:
                 a += 1;
-                textView3.setText(String.valueOf(myArray[a%5]));
+                if (a==7){
+                    a=2;
+                }
+                textView3.setText(String.valueOf(a));
                 break;
             case R.id.playbutton:
 
@@ -167,4 +170,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    @Override
+    public void onBackPressed() {
+
+    }
 }

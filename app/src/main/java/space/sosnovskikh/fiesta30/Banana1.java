@@ -13,6 +13,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -45,7 +48,7 @@ public class Banana1 extends AppCompatActivity  {
             "драма",
             "театр",
             "экран",
-            "сценари",
+            "сценарий",
             "просмотр",
             "место",
             "ряд",
@@ -323,7 +326,7 @@ public class Banana1 extends AppCompatActivity  {
             "клуб",
             "страсть",
             "профессия",
-            "бобби",
+            "хобби",
             "весёлое",
             "вечер",
             "достижение",
@@ -613,8 +616,6 @@ public class Banana1 extends AppCompatActivity  {
 
 
 
-
-
     boolean[] wetkaB = {false, false, false, false, false, false};
 
     public int rand() {
@@ -635,10 +636,15 @@ public class Banana1 extends AppCompatActivity  {
         end.add("0");
         end.add("0");
         end.add("0");
+        for(int i = 0; i< end.size(); i++) {
+            Log.d("my",end.get(i)+"аааааааааааа"+i );
+        }
+        Log.d("my", "list size: " + end.size());
         edit = findViewById(R.id.edit);
         text = findViewById(R.id.view);
         button = findViewById(R.id.button);
         them = MainActivity.getThemes();
+        Log.d("my", "kjsdhgie");
 
 
             if (them == 1){
@@ -672,7 +678,7 @@ public class Banana1 extends AppCompatActivity  {
                     }
 
                 }
-        if (them == 5){
+        if (them == 4){
             //путешествия
 
             for (int i = 0; i < 6; i++) {
@@ -700,7 +706,7 @@ public class Banana1 extends AppCompatActivity  {
 
                     } else {
                         list.add(b);
-                        tema.add(wetkafilm[b]);
+                        tema.add(wetkapet[b]);
 
                     }
                 }
@@ -708,6 +714,7 @@ public class Banana1 extends AppCompatActivity  {
 
                 }
             if (them == 0){
+                Log.d("my", "onCreate: ");
                 //фильм
                 for (int i = 0; i < 6; i++) {
                     double a = Math.random() * 99;
@@ -723,7 +730,7 @@ public class Banana1 extends AppCompatActivity  {
 
 
                 }
-            if (them == 4){
+            if (them == 5){
                 //спорт
                 for (int i = 0; i < 6; i++) {
                     double a = Math.random() * 99;
@@ -741,7 +748,7 @@ public class Banana1 extends AppCompatActivity  {
                 }
 
             }
-        text.setText( tema.get(w / 5));
+        text.setText( tema.get(w / MainActivity.a));
 
 
 
@@ -751,24 +758,36 @@ public class Banana1 extends AppCompatActivity  {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (w<(MainActivity.a)*5) {
+                if (w<(MainActivity.a)*5-1) {
                     if (x < (MainActivity.a -1)) {
-                        Log.d("my", "onClick: 0");
+                        Log.d("my",  x+","+w+","+MainActivity.a);
                         swap();
                         x++;
+                        w++;
                     }
                     else if (x % (MainActivity.a-1) == 0) {
                         x = 0;
-                        Log.d("my", "onClick: 1");
-                        edit.setText("");
-                        end.set(w / 5, edit.getText().toString());
+                        Log.d("my",  x+","+w+","+MainActivity.a);
+                        Log.d("my",  "банан");
 
-                        text.setText( tema.get(w /(MainActivity.a-1)));
+                        w++;
+                        end.set(w / MainActivity.a-1, edit.getText().toString());
+                        Log.d("my", "index: "+w / MainActivity.a);
+                        Log.d("my", "value: "+edit.getText().toString());
+                        Log.d("my", "elem: "+end.get(w / MainActivity.a));
+                        edit.setText("");
+
+                        text.setText( tema.get(w /(MainActivity.a)));
                     }
-                    Log.d("my", "onClick: 2");
-                    w++;
+
+                    Log.d("my",  x+","+w+","+MainActivity.a);
+
                 }
                 else{
+                    Log.d("my", "list size: " + end.size());
+                    for(int i = 0; i< end.size(); i++) {
+                        Log.d("my",end.get(i)+"аааааааааааа" +i);
+                    }
 
                     Intent intent = new Intent(Banana1.this,Osnova.class);
                     //пройдет?
@@ -830,7 +849,12 @@ public class Banana1 extends AppCompatActivity  {
             stopPlay();
 
         }
-    }}
+    }
+    @Override
+    public void onBackPressed() {
+
+    }
+}
 
 
 
