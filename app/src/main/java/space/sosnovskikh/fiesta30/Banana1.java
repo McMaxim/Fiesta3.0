@@ -784,6 +784,9 @@ public class Banana1 extends AppCompatActivity  {
 
                 }
                 else{
+
+                    end.set(4, edit.getText().toString());
+
                     Log.d("my", "list size: " + end.size());
                     for(int i = 0; i< end.size(); i++) {
                         Log.d("my",end.get(i)+"аааааааааааа" +i);
