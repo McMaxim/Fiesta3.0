@@ -22,13 +22,14 @@ import java.util.Random;
 public class Banana1 extends AppCompatActivity  {
     MediaPlayer mPlayer;
     EditText edit;
-    TextView text;
+    TextView text, Ochared;
     Button button;
     List list =  new ArrayList<Integer>();
     public static List<String> tema = new ArrayList<String>();
     public static List<String> end= new ArrayList<String>();
     static int x = 0;
     static int w = 0;
+    static int p = 1;
     static int them;
     static final String[] wetkafilm = {"фильм",
             "кинотеатр",
@@ -641,6 +642,7 @@ public class Banana1 extends AppCompatActivity  {
         }
         Log.d("my", "list size: " + end.size());
         edit = findViewById(R.id.edit);
+        Ochared = findViewById(R.id.Ochared);
         text = findViewById(R.id.view);
         button = findViewById(R.id.button);
         them = MainActivity.getThemes();
@@ -749,6 +751,11 @@ public class Banana1 extends AppCompatActivity  {
 
             }
         text.setText( tema.get(w / MainActivity.a));
+        Ochared.setText("Очередь игрока "+p);
+        p+=1;
+        edit.setText(".");
+        Log.d("my", "Проерку прошло");
+
 
 
 
@@ -758,9 +765,24 @@ public class Banana1 extends AppCompatActivity  {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (!(edit.getText().toString().equals(".")  || edit.getText().toString().equals(text.getText().toString()) ||
+                edit.getText().toString().equals("")  || edit.getText().toString().equals(" ")  || edit.getText().toString().equals("  ")  )){
+                    Log.d("my", "Проерку прошло");
+
+                    Log.d("my", edit.getText().toString());
+
                 if (w<(MainActivity.a)*5-1) {
+
+
+                    Ochared.setText("Очередь игрока "+p);
+                    if(p == 2){
+                        p = 0;
+                    }
+                    p+=1;
                     if (x < (MainActivity.a -1)) {
                         Log.d("my",  x+","+w+","+MainActivity.a);
+
+
                         swap();
                         x++;
                         w++;
@@ -775,7 +797,7 @@ public class Banana1 extends AppCompatActivity  {
                         Log.d("my", "index: "+w / MainActivity.a);
                         Log.d("my", "value: "+edit.getText().toString());
                         Log.d("my", "elem: "+end.get(w / MainActivity.a));
-                        edit.setText("");
+                        edit.setText(".");
 
                         text.setText( tema.get(w /(MainActivity.a)));
                     }
@@ -798,7 +820,7 @@ public class Banana1 extends AppCompatActivity  {
 
 
 
-                    }
+                    }}
 
 
             }
@@ -815,12 +837,13 @@ public class Banana1 extends AppCompatActivity  {
                 play();
             }
         });
+        if (MainActivity.ump== 0){
         play();
-    }
+    }}
     public void swap() {
         if (!(edit.getText().toString().length() < 2)) {
             text.setText(edit.getText().toString());
-            edit.setText("");
+            edit.setText(".");
         }
     }
 

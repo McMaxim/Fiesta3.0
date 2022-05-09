@@ -15,9 +15,9 @@ import java.util.ArrayList;
 public class Osnova extends AppCompatActivity implements View.OnClickListener{
     Button btn1,btn2,btn3,btn4,btn5,btn21,btn11,btn31,btn41,btn51;
     MediaPlayer mPlayer;
-    static Integer[] element = {0,0,0,0,0};
+    static Integer[] element = {0,0,0,0,0,0,0,0,0,0,0};
     static String[] element1 = {"0","0","0","0","0","0"};
-    int otvet = 0;
+    static int otvet = 0;
     //какая кнопка к какой относится
     int m = 0;
     int n = 0;
@@ -42,12 +42,12 @@ public class Osnova extends AppCompatActivity implements View.OnClickListener{
 
         copyOfend.addAll(Banana1.end);
         copyOftema.addAll(Banana1.tema);
-        start.addAll(copyOftema);
-        /*for(int i = 0; i < 5; i++) {
+
+        for(int i = 0; i < 5; i++) {
             int bibka = (int) (Math.random() * copyOftema.size());
             start.add(copyOftema.get(bibka));
             copyOftema.remove(copyOftema.get(bibka));
-        }*/
+        }
 
 
         // сделать проверку правильно или нет и сохранить результат!!! сам после
@@ -96,7 +96,9 @@ public class Osnova extends AppCompatActivity implements View.OnClickListener{
                 play();
             }
         });
-        play();
+        if (MainActivity.ump== 0) {
+            play();
+        }
     }
 
 
@@ -131,22 +133,21 @@ public class Osnova extends AppCompatActivity implements View.OnClickListener{
         }
     }
     public void proverka() {
-            if (element[0]!= 0&& element[1]!= 0&& element[2]!= 0&& element[3]!= 0&& element[4]!= 0){
+            if (element[6]!= 0&& element[7]!= 0&& element[8]!= 0&& element[9]!= 0&& element[10]!= 0){
+                Log.d("by", "proverka: ");
 
-                for(int i = 0; i < 5; i++){
-                    int x = element[i];
-
-                    element1[x]= start.get(i);
-                }
-                for(int i = 0; i < 5; i++){
-                    if (copyOftema.get(i) == element1[i+1]){
+                for(int i = 6; i < 11; i++){
+                    if (start.get(element[i]-1).equals(copyOftema.get(i-5))){
+                        Log.d("by", "идет");
                         otvet+=1;
                     }
+
                 }
-                Intent intent = new Intent(Osnova.this,Final.class);
-                //пройдет?
+
+
+                Intent intent = new Intent(this,Final.class);
                 startActivity(intent);
-                finish();
+
 
 
             }
@@ -170,7 +171,8 @@ public class Osnova extends AppCompatActivity implements View.OnClickListener{
                     m = 1;
                     Log.d("my", "m =1");
                 }
-                zhest();
+                zhest1();
+
                 break;
             case R.id.btn2:
                 btn2.setBackgroundColor(getResources().getColor(colors[2]));
@@ -183,7 +185,7 @@ public class Osnova extends AppCompatActivity implements View.OnClickListener{
                     m = 2;
                     Log.d("my", "m =2");
                 }
-                zhest();
+                zhest1();
                 break;
             case R.id.btn3:
                 btn3.setBackgroundColor(getResources().getColor(colors[3]));
@@ -196,7 +198,7 @@ public class Osnova extends AppCompatActivity implements View.OnClickListener{
                     m = 3;
                     Log.d("my", "m =3");
                 }
-                zhest();
+                zhest1();
                 break;
             case R.id.btn4:
                 btn4.setBackgroundColor(getResources().getColor(colors[4]));
@@ -208,7 +210,7 @@ public class Osnova extends AppCompatActivity implements View.OnClickListener{
                     m = 4;
                     Log.d("my", "m =4");
                 }
-                zhest();
+                zhest1();
                 break;
             case R.id.btn5:
                 btn5.setBackgroundColor(getResources().getColor(colors[5]));
@@ -221,65 +223,69 @@ public class Osnova extends AppCompatActivity implements View.OnClickListener{
                     m = 5;
                     Log.d("my", "m =5");
                 }
-                zhest();
+                zhest1();
                 break;
             case R.id.btn11:
                 if (m ==0){
-                    m =11;
+                    m = 6 ;
                     Log.d("my", "m =11");
                 }
                 else{
                     n = m;
-                    m = 11;
+                    m = 6;
                     Log.d("my", "m =11");
                 }
                 zhest();
+
                 break;
             case R.id.btn21:
                 if (m ==0){
-                    m =21;
+                    m =7;
                     Log.d("my", "m =21");
                 }
                 else{
                     n = m;
-                    m = 21;
+                    m = 7;
                     Log.d("my", "m =21");
                 }
                 zhest();
+
                 break;
             case R.id.btn31:
                 if (m ==0){
-                    m =31;
+                    m =8;
                     Log.d("my", "m =31");
                 }
                 else{
                     n = m;
-                    m = 31;
+                    m = 8;
                     Log.d("my", "m =31");
                 }
                 zhest();
+
                 break;
             case R.id.btn41:
                 if (m ==0){
-                    m =41;
+                    m =9;
                     Log.d("my", "m =41");
                 }
                 else{
                     n = m;
-                    m = 41;
+                    m = 9;
                     Log.d("my", "m =41");
                 }
                 zhest();
+
                 break;
 
             case R.id.btn51:
                 if (m ==0){
-                    m =51;
+                    m =10;
                     Log.d("my", "m =51");
                 }
                 else{
                     n = m;
-                    m = 51;
+                    m = 10;
                     Log.d("my", "m =51");
                 }
                 zhest();
@@ -288,433 +294,442 @@ public class Osnova extends AppCompatActivity implements View.OnClickListener{
 
     }
     public void zhest(){
-        if (n!=0 && m!=0 && n!=m){
+        if (n!=0 && m!=0 ){
             Log.d("my", "zhest: ");
             if (n == 1){
                 Log.d("my", "zhest: 1");
 
-                if (m == 11){
+                if (m == 6){
                     btn11.setBackgroundColor(getResources().getColor(colors[1]));
                 }
-                if (m == 21){
+                if (m == 7){
                     btn21.setBackgroundColor(getResources().getColor(colors[1]));
                 }
-                if (m == 31){
+                if (m == 8){
                     btn31.setBackgroundColor(getResources().getColor(colors[1]));
                 }
-                if (m == 41){
+                if (m == 9){
                     btn41.setBackgroundColor(getResources().getColor(colors[1]));
                 }
-                if (m == 51){
+                if (m == 10){
                     btn51.setBackgroundColor(getResources().getColor(colors[1]));
                 }
+                if (m == 5 ){
+                    btn1.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn5.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 4 ){
+                    btn1.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn4.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 3 ){
+                    btn1.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn3.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 2 ){
+                    btn1.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn2.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 1 ){
+
+                    btn1.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+
             }
             if (n == 2){
                 Log.d("my", "zhest: 2");
 
-                if (m == 11){
+                if (m == 6){
                     btn11.setBackgroundColor(getResources().getColor(colors[2]));
                 }
-                if (m == 21){
+                if (m == 7){
                     btn21.setBackgroundColor(getResources().getColor(colors[2]));
                 }
-                if (m == 31){
+                if (m == 8){
                     btn31.setBackgroundColor(getResources().getColor(colors[2]));
                 }
-                if (m == 41){
+                if (m == 9){
                     btn41.setBackgroundColor(getResources().getColor(colors[2]));
                 }
-                if (m == 51){
+                if (m == 10){
                     btn51.setBackgroundColor(getResources().getColor(colors[2]));
                 }
+                if (m == 5 ){
+                    btn2.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn5.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 4 ){
+                    btn2.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn4.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 3 ){
+                    btn2.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn3.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 2 ){
+
+                    btn2.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 1 ){
+                    btn2.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn1.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+
             }
             if (n == 3){
                 Log.d("my", "zhest:3 ");
 
-                if (m == 11){
+                if (m == 6){
                     btn11.setBackgroundColor(getResources().getColor(colors[3]));
                 }
-                if (m == 21){
+                if (m == 7){
                     btn21.setBackgroundColor(getResources().getColor(colors[3]));
                 }
-                if (m == 31){
+                if (m == 8){
                     btn31.setBackgroundColor(getResources().getColor(colors[3]));
                 }
-                if (m == 41){
+                if (m == 9){
                     btn41.setBackgroundColor(getResources().getColor(colors[3]));
                 }
-                if (m == 51){
+                if (m == 10){
                     btn51.setBackgroundColor(getResources().getColor(colors[3]));
+                }
+
+                if (m == 5 ){
+                    btn3.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn5.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 4 ){
+                    btn3.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn4.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 3 ){
+
+                    btn3.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 2 ){
+                    btn3.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn2.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 1 ){
+                    btn3.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn1.setBackgroundColor(getResources().getColor(colors[0]));
                 }
             }
             if (n == 4){
                 Log.d("my", "zhest: 4");
 
-                if (m == 11){
+                if (m == 6){
                     btn11.setBackgroundColor(getResources().getColor(colors[4]));
                 }
-                if (m == 21){
+                if (m == 27){
                     btn21.setBackgroundColor(getResources().getColor(colors[4]));
                 }
-                if (m == 31){
+                if (m == 8){
                     btn31.setBackgroundColor(getResources().getColor(colors[4]));
                 }
-                if (m == 41){
+                if (m == 9){
                     btn41.setBackgroundColor(getResources().getColor(colors[4]));
                 }
-                if (m == 51){
+                if (m == 10){
                     btn51.setBackgroundColor(getResources().getColor(colors[4]));
+                }
+                if (m == 5 ){
+                    btn4.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn5.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 4 ){
+
+                    btn4.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 3 ){
+                    btn4.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn3.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 2 ){
+                    btn4.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn2.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 1 ){
+                    btn4.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn1.setBackgroundColor(getResources().getColor(colors[0]));
                 }
             }
             if (n == 5){
                 Log.d("my", "zhest: 5");
 
-                if (m == 11){
+                if (m == 6){
                     btn11.setBackgroundColor(getResources().getColor(colors[5]));
                 }
-                if (m == 21){
+                if (m == 7){
                     btn21.setBackgroundColor(getResources().getColor(colors[5]));
                 }
-                if (m == 31){
+                if (m == 8){
                     btn31.setBackgroundColor(getResources().getColor(colors[5]));
                 }
-                if (m == 41){
+                if (m == 9){
                     btn41.setBackgroundColor(getResources().getColor(colors[5]));
                 }
-                if (m == 51){
+                if (m == 10){
                     btn51.setBackgroundColor(getResources().getColor(colors[5]));
                 }
+                if (m == 5 ){
+                    btn5.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 4 ){
+                    btn5.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn4.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 3 ){
+                    btn5.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn3.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 2 ){
+                    btn5.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn2.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 1 ){
+                    btn5.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn1.setBackgroundColor(getResources().getColor(colors[0]));
+                }
             }
+            ball();
+            n =0;
+            m = 0;
+            proverka();
+
+        }
+    }
+    public void zhest1(){
+        if (n!=0 && m!=0 ){
+            Log.d("my", "zhest: ");
+            if (n == 1){
+                Log.d("my", "zhest: 1");
+
+                if (m == 6){
+                    btn11.setBackgroundColor(getResources().getColor(colors[1]));
+                }
+                if (m == 7){
+                    btn21.setBackgroundColor(getResources().getColor(colors[1]));
+                }
+                if (m == 8){
+                    btn31.setBackgroundColor(getResources().getColor(colors[1]));
+                }
+                if (m == 9){
+                    btn41.setBackgroundColor(getResources().getColor(colors[1]));
+                }
+                if (m == 10){
+                    btn51.setBackgroundColor(getResources().getColor(colors[1]));
+                }
+                if (m == 5 ){
+                    btn1.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn5.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 4 ){
+                    btn1.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn4.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 3 ){
+                    btn1.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn3.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 2 ){
+                    btn1.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn2.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 1 ){
+
+                    btn1.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+
+            }
+            if (n == 2){
+                Log.d("my", "zhest: 2");
+
+                if (m == 6){
+                    btn11.setBackgroundColor(getResources().getColor(colors[2]));
+                }
+                if (m == 7){
+                    btn21.setBackgroundColor(getResources().getColor(colors[2]));
+                }
+                if (m == 8){
+                    btn31.setBackgroundColor(getResources().getColor(colors[2]));
+                }
+                if (m == 9){
+                    btn41.setBackgroundColor(getResources().getColor(colors[2]));
+                }
+                if (m == 10){
+                    btn51.setBackgroundColor(getResources().getColor(colors[2]));
+                }
+                if (m == 5 ){
+                    btn2.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn5.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 4 ){
+                    btn2.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn4.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 3 ){
+                    btn2.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn3.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 2 ){
+
+                    btn2.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 1 ){
+                    btn2.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn1.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+
+            }
+            if (n == 3){
+                Log.d("my", "zhest:3 ");
+
+                if (m == 6){
+                    btn11.setBackgroundColor(getResources().getColor(colors[3]));
+                }
+                if (m == 7){
+                    btn21.setBackgroundColor(getResources().getColor(colors[3]));
+                }
+                if (m == 8){
+                    btn31.setBackgroundColor(getResources().getColor(colors[3]));
+                }
+                if (m == 9){
+                    btn41.setBackgroundColor(getResources().getColor(colors[3]));
+                }
+                if (m == 10){
+                    btn51.setBackgroundColor(getResources().getColor(colors[3]));
+                }
+
+                if (m == 5 ){
+                    btn3.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn5.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 4 ){
+                    btn3.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn4.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 3 ){
+
+                    btn3.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 2 ){
+                    btn3.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn2.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 1 ){
+                    btn3.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn1.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+            }
+            if (n == 4){
+                Log.d("my", "zhest: 4");
+
+                if (m == 6){
+                    btn11.setBackgroundColor(getResources().getColor(colors[4]));
+                }
+                if (m == 27){
+                    btn21.setBackgroundColor(getResources().getColor(colors[4]));
+                }
+                if (m == 8){
+                    btn31.setBackgroundColor(getResources().getColor(colors[4]));
+                }
+                if (m == 9){
+                    btn41.setBackgroundColor(getResources().getColor(colors[4]));
+                }
+                if (m == 10){
+                    btn51.setBackgroundColor(getResources().getColor(colors[4]));
+                }
+                if (m == 5 ){
+                    btn4.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn5.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 4 ){
+
+                    btn4.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 3 ){
+                    btn4.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn3.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 2 ){
+                    btn4.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn2.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 1 ){
+                    btn4.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn1.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+            }
+            if (n == 5){
+                Log.d("my", "zhest: 5");
+
+                if (m == 6){
+                    btn11.setBackgroundColor(getResources().getColor(colors[5]));
+                }
+                if (m == 7){
+                    btn21.setBackgroundColor(getResources().getColor(colors[5]));
+                }
+                if (m == 8){
+                    btn31.setBackgroundColor(getResources().getColor(colors[5]));
+                }
+                if (m == 9){
+                    btn41.setBackgroundColor(getResources().getColor(colors[5]));
+                }
+                if (m == 10){
+                    btn51.setBackgroundColor(getResources().getColor(colors[5]));
+                }
+                if (m == 5 ){
+                    btn5.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 4 ){
+                    btn5.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn4.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 3 ){
+                    btn5.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn3.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 2 ){
+                    btn5.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn2.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+                if (m == 1 ){
+                    btn5.setBackgroundColor(getResources().getColor(colors[0]));
+                    btn1.setBackgroundColor(getResources().getColor(colors[0]));
+                }
+            }
+
             n =0;
             m = 0;
 
         }
     }
+    public void ball(){
+        Log.d("by", ""+m+"  "+n);
+        if (element[m] != 0){
+            Log.d("by", ""+m+"  "+n);
 
-    /*@Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.btn1:
-                Log.d("my", "btn1");
-                btn1.setBackgroundColor(colors[1]);
-                switch (v.getId()){
-                    case R.id.btn11:
-                        btn11.setBackgroundColor(colors[1]);
-                        element[0]=1;
-                        break;
-                    case R.id.btn21:
-                        btn21.setBackgroundColor(colors[1]);
-                        element[0]=2;
-                        break;
-                    case R.id.btn31:
-                        btn31.setBackgroundColor(colors[1]);
-                        element[0]=3;
-                        break;
-                    case R.id.btn41:
-                        btn41.setBackgroundColor(colors[1]);
-                        element[0]=4;
-                        break;
-                    case R.id.btn51:
-                        btn51.setBackgroundColor(colors[1]);
-                        element[0]=5;
-                        break;
-                    case R.id.btn1:
-                        btn1.setBackgroundColor(colors[o]);
-                        switch (element[0]){
-                            case 1:
-                                btn11.setBackgroundColor(colors[0]);
-                                break;
-                            case  2:
-                                btn21.setBackgroundColor(colors[0]);
-                                break;
-                            case 3:
-                                btn31.setBackgroundColor(colors[0]);
-                                break;
-                            case 4:
-                                btn41.setBackgroundColor(colors[0]);
-                                break;
-                            case 5:
-                                btn51.setBackgroundColor(colors[0]);
-                                break;
-
-                        }
+            if (element[m]== 1){
+                btn1.setBackgroundColor(getResources().getColor(colors[0]));
+            }
+            if (element[m]== 2){
+                btn2.setBackgroundColor(getResources().getColor(colors[0]));
+            }
+            if (element[m]== 3){
+                btn3.setBackgroundColor(getResources().getColor(colors[0]));
+            }
+            if (element[m]== 4){
+                btn4.setBackgroundColor(getResources().getColor(colors[0]));
+            }
+            if (element[m]== 5){
+                btn5.setBackgroundColor(getResources().getColor(colors[0]));
+            }}
+        element[m] = n;
 
 
-                    case R.id.btn2:
-                        btn1.setBackgroundColor(colors[o]);
-                        break;
-
-                    case R.id.btn3:
-                        btn1.setBackgroundColor(colors[o]);
-                        break;
-
-
-                    case R.id.btn4:
-                        btn1.setBackgroundColor(colors[o]);
-                        break;
-
-                    case R.id.btn5:
-                        btn1.setBackgroundColor(colors[o]);
-                        break;}
-                proverka();
-
-
-
-            case R.id.btn2:
-                Log.d("my", "btn2");
-                btn2.setBackgroundColor(colors[2]);
-                switch (v.getId()){
-                    case R.id.btn11:
-                        btn11.setBackgroundColor(colors[2]);
-                        element[1]=1;
-                        break;
-                    case R.id.btn21:
-                        btn21.setBackgroundColor(colors[2]);
-                        element[1]=2;
-                        break;
-                    case R.id.btn31:
-                        btn31.setBackgroundColor(colors[2]);
-                        element[1]=3;
-                        break;
-                    case R.id.btn41:
-                        btn41.setBackgroundColor(colors[2]);
-                        element[1]=4;
-                        break;
-                    case R.id.btn51:
-                        btn51.setBackgroundColor(colors[2]);
-                        element[1]=5;
-                        break;
-                    case R.id.btn2:
-                        btn1.setBackgroundColor(colors[o]);
-                        switch (element[0]){
-                            case 1:
-                                btn11.setBackgroundColor(colors[0]);
-                                break;
-                            case  2:
-                                btn21.setBackgroundColor(colors[0]);
-                                break;
-                            case 3:
-                                btn31.setBackgroundColor(colors[0]);
-                                break;
-                            case 4:
-                                btn41.setBackgroundColor(colors[0]);
-                                break;
-                            case 5:
-                                btn51.setBackgroundColor(colors[0]);
-                                break;
-
-                        }
-                proverka();
-
-
-                    case R.id.btn1:
-                        btn2.setBackgroundColor(colors[o]);
-                        break;
-
-                    case R.id.btn3:
-                        btn2.setBackgroundColor(colors[o]);
-                        break;
-
-
-                    case R.id.btn4:
-                        btn2.setBackgroundColor(colors[o]);
-                        break;
-
-                    case R.id.btn5:
-                        btn2.setBackgroundColor(colors[o]);
-                        break;}
-            case R.id.btn3:
-                Log.d("my", "btn3");
-                btn3.setBackgroundColor(colors[3]);
-                switch (v.getId()){
-                    case R.id.btn11:
-                        btn11.setBackgroundColor(colors[3]);
-                        element[2]=1;
-                        break;
-                    case R.id.btn21:
-                        btn21.setBackgroundColor(colors[3]);
-                        element[2]=2;
-                        break;
-                    case R.id.btn31:
-                        btn31.setBackgroundColor(colors[3]);
-                        element[2]=3;
-                        break;
-                    case R.id.btn41:
-                        btn41.setBackgroundColor(colors[3]);
-                        element[2]=4;
-                        break;
-                    case R.id.btn51:
-                        btn51.setBackgroundColor(colors[3]);
-                        element[2]=5;
-                        break;
-                    case R.id.btn3:
-                        btn1.setBackgroundColor(colors[o]);
-                        switch (element[0]){
-                            case 1:
-                                btn11.setBackgroundColor(colors[0]);
-                                break;
-                            case  2:
-                                btn21.setBackgroundColor(colors[0]);
-                                break;
-                            case 3:
-                                btn31.setBackgroundColor(colors[0]);
-                                break;
-                            case 4:
-                                btn41.setBackgroundColor(colors[0]);
-                                break;
-                            case 5:
-                                btn51.setBackgroundColor(colors[0]);
-                                break;
-
-                        }
-
-
-
-                    case R.id.btn1:
-                        btn2.setBackgroundColor(colors[o]);
-                        break;
-
-                    case R.id.btn2:
-                        btn2.setBackgroundColor(colors[o]);
-                        break;
-
-
-                    case R.id.btn4:
-                        btn2.setBackgroundColor(colors[o]);
-                        break;
-
-                    case R.id.btn5:
-                        btn2.setBackgroundColor(colors[o]);
-                        break;}
-                proverka();
-            case R.id.btn4:
-                Log.d("my", "btn4");
-                btn4.setBackgroundColor(colors[4]);
-                switch (v.getId()){
-                    case R.id.btn11:
-                        btn11.setBackgroundColor(colors[4]);
-                        element[3]=1;
-                        break;
-                    case R.id.btn21:
-                        btn21.setBackgroundColor(colors[4]);
-                        element[3]=2;
-                        break;
-                    case R.id.btn31:
-                        btn31.setBackgroundColor(colors[4]);
-                        element[3]=3;
-                        break;
-                    case R.id.btn41:
-                        btn41.setBackgroundColor(colors[4]);
-                        element[3]=4;
-                        break;
-                    case R.id.btn51:
-                        btn51.setBackgroundColor(colors[4]);
-                        element[3]=5;
-                        break;
-                    case R.id.btn4:
-                        btn1.setBackgroundColor(colors[o]);
-                        switch (element[0]){
-                            case 1:
-                                btn11.setBackgroundColor(colors[0]);
-                                break;
-                            case  2:
-                                btn21.setBackgroundColor(colors[0]);
-                                break;
-                            case 3:
-                                btn31.setBackgroundColor(colors[0]);
-                                break;
-                            case 4:
-                                btn41.setBackgroundColor(colors[0]);
-                                break;
-                            case 5:
-                                btn51.setBackgroundColor(colors[0]);
-                                break;
-
-                        }
-
-
-                    case R.id.btn1:
-                        btn2.setBackgroundColor(colors[o]);
-                        break;
-
-                    case R.id.btn3:
-                        btn2.setBackgroundColor(colors[o]);
-                        break;
-
-
-                    case R.id.btn2:
-                        btn2.setBackgroundColor(colors[o]);
-                        break;
-
-                    case R.id.btn5:
-                        btn2.setBackgroundColor(colors[o]);
-                        break;}
-                proverka();
-            case R.id.btn5:
-                Log.d("my", "btn5");
-                btn5.setBackgroundColor(colors[5]);
-                switch (v.getId()){
-                    case R.id.btn11:
-                        btn11.setBackgroundColor(colors[5]);
-                        element[4]=1;
-                        break;
-                    case R.id.btn21:
-                        btn21.setBackgroundColor(colors[5]);
-                        element[4]=2;
-                        break;
-                    case R.id.btn31:
-                        btn31.setBackgroundColor(colors[5]);
-                        element[4]=3;
-                        break;
-                    case R.id.btn41:
-                        btn41.setBackgroundColor(colors[5]);
-                        element[4]=4;
-                        break;
-                    case R.id.btn51:
-                        btn51.setBackgroundColor(colors[5]);
-                        element[4]=5;
-                        break;
-                    case R.id.btn5:
-                        btn1.setBackgroundColor(colors[o]);
-                        switch (element[0]){
-                            case 1:
-                                btn11.setBackgroundColor(colors[0]);
-                                break;
-                            case  2:
-                                btn21.setBackgroundColor(colors[0]);
-                                break;
-                            case 3:
-                                btn31.setBackgroundColor(colors[0]);
-                                break;
-                            case 4:
-                                btn41.setBackgroundColor(colors[0]);
-                                break;
-                            case 5:
-                                btn51.setBackgroundColor(colors[0]);
-                                break;
-
-                        }
-
-
-                    case R.id.btn1:
-                        btn2.setBackgroundColor(colors[o]);
-                        break;
-
-                    case R.id.btn3:
-                        btn2.setBackgroundColor(colors[o]);
-                        break;
-
-
-                    case R.id.btn4:
-                        btn2.setBackgroundColor(colors[o]);
-                        break;
-
-                    case R.id.btn2:
-                        btn2.setBackgroundColor(colors[o]);
-                        break;}
-                }
-                proverka();
         }
+    }
 
-     */
-}
+

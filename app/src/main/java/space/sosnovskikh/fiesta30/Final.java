@@ -25,7 +25,7 @@ public class Final extends AppCompatActivity implements View.OnClickListener {
         findViewById(R.id.button);
         button.setOnClickListener((View.OnClickListener) this);
         textView.setOnClickListener((View.OnClickListener) this);
-        textView.setText(String.valueOf(Osnova.a)+"/5");
+        textView.setText(String.valueOf(Osnova.otvet)+"/5");
         mPlayer= MediaPlayer.create(this, R.raw.music);
         mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
@@ -34,8 +34,9 @@ public class Final extends AppCompatActivity implements View.OnClickListener {
                 play();
             }
         });
-        play();
-
+        if (MainActivity.ump== 0) {
+            play();
+        }
     }
     private void stopPlay(){
         mPlayer.stop();
@@ -82,7 +83,7 @@ public void onClick( View v) {
 
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
-            finish();
+
     }
 }
 }

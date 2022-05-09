@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ImageButton stop;
     Spinner spinner;
    static int num;
+    public static Integer ump = 0;
 
     MediaPlayer mPlayer;
 
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         playbutton = findViewById(R.id.playbutton);
         playbutton.setOnClickListener(this);
+
 
 
         textView3 = findViewById(R.id.textView3);
@@ -151,6 +153,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 a += 1;
                 if (a==7){
                     a=2;
+
                 }
                 textView3.setText(String.valueOf(a));
                 break;
@@ -159,14 +162,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent = new Intent(this,Banana1.class);
                 startActivity(intent);
                 break;
-            case R.id.play: {
+            case R.id.play:
                 play();
+
+                ump = 0;
                 break;
-            }
-            case R.id.stop: {
+
+
+            case R.id.stop:
                 stop();
+                ump = 1;
                 break;
-            }
+
+
         }
     }
 
