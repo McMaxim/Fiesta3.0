@@ -651,7 +651,7 @@ public class Banana1 extends AppCompatActivity  {
 
             if (them == 1){
                 //работа
-                for (int i = 0; i < 6; i++) {
+                for (int i = 0; i < 5; i++) {
                     double a = Math.random()*99;
                     int b = (int) a;
                     if (list.contains(b)){
@@ -668,7 +668,7 @@ public class Banana1 extends AppCompatActivity  {
             if (them == 2){
                 //хобби
 
-                    for (int i = 0; i < 6; i++) {
+                    for (int i = 0; i < 5; i++) {
                         double a = Math.random() * 99;
                         int b = (int) a;
                         if (list.contains(b)) {
@@ -683,7 +683,7 @@ public class Banana1 extends AppCompatActivity  {
         if (them == 4){
             //путешествия
 
-            for (int i = 0; i < 6; i++) {
+            for (int i = 0; i < 5; i++) {
                 double a = Math.random() * 99;
                 int b = (int) a;
                 if (list.contains(b)) {
@@ -701,7 +701,7 @@ public class Banana1 extends AppCompatActivity  {
 
         if (them == 3){
                 // дом животное
-                for (int i = 0; i < 6; i++) {
+                for (int i = 0; i < 5; i++) {
                     double a = Math.random() * 60;
                     int b = (int) a;
                     if (list.contains(b)) {
@@ -718,7 +718,7 @@ public class Banana1 extends AppCompatActivity  {
             if (them == 0){
                 Log.d("my", "onCreate: ");
                 //фильм
-                for (int i = 0; i < 6; i++) {
+                for (int i = 0; i < 5; i++) {
                     double a = Math.random() * 99;
                     int b = (int) a;
                     if (list.contains(b)) {
@@ -734,7 +734,7 @@ public class Banana1 extends AppCompatActivity  {
                 }
             if (them == 5){
                 //спорт
-                for (int i = 0; i < 6; i++) {
+                for (int i = 0; i < 5; i++) {
                     double a = Math.random() * 99;
                     int b = (int) a;
                     if (list.contains(b)) {
@@ -754,7 +754,7 @@ public class Banana1 extends AppCompatActivity  {
         Ochared.setText("Очередь игрока "+p);
         p+=1;
         edit.setText(".");
-        Log.d("my", "Проерку прошло");
+        Log.d("mmmm", ""+tema.size());
 
 
 
@@ -854,6 +854,7 @@ public class Banana1 extends AppCompatActivity  {
         try {
             mPlayer.prepare();
             mPlayer.seekTo(0);
+
         }
         catch (Throwable t) {
             Toast.makeText(this, t.getMessage(), Toast.LENGTH_SHORT).show();

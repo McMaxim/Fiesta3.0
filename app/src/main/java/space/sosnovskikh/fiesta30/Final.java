@@ -16,15 +16,15 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Final extends AppCompatActivity implements View.OnClickListener {
     TextView textView;
     MediaPlayer mPlayer;
-    ImageButton button;
+    ImageButton buttonh;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.final_1);
-        findViewById(R.id.textView6);
-        findViewById(R.id.button);
-        button.setOnClickListener((View.OnClickListener) this);
-        textView.setOnClickListener((View.OnClickListener) this);
+        textView.findViewById(R.id.textView6);
+        buttonh.findViewById(R.id.button2);
+        buttonh.setOnClickListener( this);
+        textView.setOnClickListener( this);
         textView.setText(String.valueOf(Osnova.otvet)+"/5");
         mPlayer= MediaPlayer.create(this, R.raw.music);
         mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
