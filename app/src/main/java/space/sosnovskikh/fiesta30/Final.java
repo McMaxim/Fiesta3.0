@@ -82,6 +82,12 @@ public class Final extends AppCompatActivity implements View.OnClickListener {
 public void onClick( View v) {
     switch (v.getId()) {
         case R.id.button2:
+            Banana1.tema.clear();
+            Banana1.end.clear();
+            Osnova.element = new Integer[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+            Osnova.element1 = new String[]{"0", "0", "0", "0", "0", "0"};
+            Osnova.otvet=0;
+
 
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);

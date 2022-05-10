@@ -42,6 +42,7 @@ public class Osnova extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.banan);
+        Log.d("mim", "onCreate: "+element.length+" "+element1.length+" "+otvet+" "+n+" "+m+" "+a+" "+i+" "+o+" "+copyOftema1.size()+" "+copyOfend.size()+" "+copyOftema.size()+" "+start.size());
          /*element = new Integer[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
          element1 = new String[]{"0", "0", "0", "0", "0", "0"};
          otvet = 0;

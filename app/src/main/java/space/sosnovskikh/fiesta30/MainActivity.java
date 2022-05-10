@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -43,9 +44,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         playbutton = findViewById(R.id.playbutton);
+        Log.d("mim", "onCreate: "+num+" "+ump+" "+a+" "+myArray.length);
         playbutton.setOnClickListener(this);
 
-        ump = 0;
+
 
 
 
@@ -183,7 +185,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
             case R.id.stop:
+                Log.d("mim", "onClick: ");
                 stop();
+
                 ump = 1;
                 break;
 

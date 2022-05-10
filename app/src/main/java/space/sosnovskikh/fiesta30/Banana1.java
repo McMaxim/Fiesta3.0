@@ -632,6 +632,9 @@ public class Banana1 extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.banan1);
+        Log.d("mim", "onCreate: "+tema.size()+" "+end.size()+" "+x+" "+w+" "+p+" "+them);
+
+
 
 
 
@@ -816,6 +819,8 @@ public class Banana1 extends AppCompatActivity  {
                     for(int i = 0; i< end.size(); i++) {
                         Log.d("my",end.get(i)+"аааааааааааа" +i);
                     }
+                    x =0;
+                    w=0;
 
                     Intent intent = new Intent(Banana1.this,Osnova.class);
                     //пройдет?
