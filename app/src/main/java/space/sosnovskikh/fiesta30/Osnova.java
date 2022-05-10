@@ -22,7 +22,7 @@ public class Osnova extends AppCompatActivity implements View.OnClickListener {
     int m = 0;
     int n = 0;
 
-    static int[] colors = {R.color.c0, R.color.c1, R.color.c2, R.color.c3,
+    static final int[] colors = {R.color.c0, R.color.c1, R.color.c2, R.color.c3,
             R.color.c4, R.color.c5};
 
     static int a = 1;
@@ -42,6 +42,26 @@ public class Osnova extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.banan);
+         /*element = new Integer[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+         element1 = new String[]{"0", "0", "0", "0", "0", "0"};
+         otvet = 0;
+        //какая кнопка к какой относится
+         m = 0;
+         n = 0;
+
+
+
+         a = 1;
+         i = 1;
+         o = 0;
+        ArrayList<String> copyOftema = new ArrayList<String>();
+        ArrayList<String> copyOftema1 = new ArrayList<String>();
+
+
+        ArrayList<String> start = new ArrayList<String>();
+        ArrayList<String> copyOfend = new ArrayList<String>();
+
+          */
         for (int j = 0; j < 5; j++) {
             copyOftema1.add(Banana1.tema.get(j));
             Log.d("mmmm", "onCreate: "+copyOftema1.size());
@@ -49,6 +69,7 @@ public class Osnova extends AppCompatActivity implements View.OnClickListener {
         }
         copyOfend.addAll(Banana1.end);
         copyOftema.addAll(Banana1.tema);
+
 
         for (int i = 0; i < 5; i++) {
             int bibka = (int) (Math.random() * copyOftema.size());

@@ -45,6 +45,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         playbutton = findViewById(R.id.playbutton);
         playbutton.setOnClickListener(this);
 
+        ump = 0;
+
+
+
+        a = 2;
+
+
+
+
+
+
+
+
 
 
         textView3 = findViewById(R.id.textView3);

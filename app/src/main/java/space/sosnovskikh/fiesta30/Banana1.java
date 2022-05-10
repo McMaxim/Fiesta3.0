@@ -632,6 +632,9 @@ public class Banana1 extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.banan1);
+
+
+
         end.add("0");
         end.add("0");
         end.add("0");
