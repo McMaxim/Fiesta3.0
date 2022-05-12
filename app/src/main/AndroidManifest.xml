@@ -20,7 +20,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Banana1">
+            android:name=".Phone"
+            android:windowSoftInputMode = "adjustResize">
 
         </activity>
         <activity

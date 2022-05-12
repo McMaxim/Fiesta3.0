@@ -64,12 +64,12 @@ public class Osnova extends AppCompatActivity implements View.OnClickListener {
 
           */
         for (int j = 0; j < 5; j++) {
-            copyOftema1.add(Banana1.tema.get(j));
+            copyOftema1.add(Phone.tema.get(j));
             Log.d("mmmm", "onCreate: "+copyOftema1.size());
 
         }
-        copyOfend.addAll(Banana1.end);
-        copyOftema.addAll(Banana1.tema);
+        copyOfend.addAll(Phone.end);
+        copyOftema.addAll(Phone.tema);
 
 
         for (int i = 0; i < 5; i++) {

@@ -13,13 +13,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
-public class Banana1 extends AppCompatActivity  {
+public class Phone extends AppCompatActivity  {
     MediaPlayer mPlayer;
     EditText edit;
     TextView text, Ochared;
@@ -759,7 +755,7 @@ public class Banana1 extends AppCompatActivity  {
         text.setText( tema.get(w / MainActivity.a));
         Ochared.setText("Очередь игрока "+p);
         p+=1;
-        edit.setText(".");
+        edit.setText("");
         Log.d("mmmm", ""+tema.size());
 
 
@@ -803,8 +799,7 @@ public class Banana1 extends AppCompatActivity  {
                         Log.d("my", "index: "+w / MainActivity.a);
                         Log.d("my", "value: "+edit.getText().toString());
                         Log.d("my", "elem: "+end.get(w / MainActivity.a));
-                        edit.setText(".");
-
+                        edit.setText("");
                         text.setText( tema.get(w /(MainActivity.a)));
                     }
 
@@ -822,7 +817,7 @@ public class Banana1 extends AppCompatActivity  {
                     x =0;
                     w=0;
 
-                    Intent intent = new Intent(Banana1.this,Osnova.class);
+                    Intent intent = new Intent(Phone.this,Osnova.class);
                     //пройдет?
                     startActivity(intent);
 
@@ -851,7 +846,7 @@ public class Banana1 extends AppCompatActivity  {
     public void swap() {
         if (!(edit.getText().toString().length() < 2)) {
             text.setText(edit.getText().toString());
-            edit.setText(".");
+            edit.setText("");
         }
     }
 

@@ -13,7 +13,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.Spinner;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -174,7 +173,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.playbutton:
 
-                Intent intent = new Intent(this,Banana1.class);
+                Intent intent = new Intent(this, Phone.class);
                 startActivity(intent);
                 break;
             case R.id.play:
