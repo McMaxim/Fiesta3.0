@@ -22,13 +22,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ImageButton playbutton;
     ImageButton leftbutton;
     ImageButton rightbutton;
+
     ImageButton play;
     ImageButton stop;
     Spinner spinner;
    static int num;
     public static Integer ump = 0;
 
-    MediaPlayer mPlayer;
+    static MediaPlayer mPlayer;
 
     public static Integer a = 2;
     int[] myArray = new int[5];
@@ -91,7 +92,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         stop.setEnabled(false);
         play.setOnClickListener(this);
         stop.setOnClickListener(this);
-        play();
+        if (MainActivity.ump== 0) {
+            play();
+        }
 
         ArrayAdapter<String> a = new ArrayAdapter<>(this,R.layout.spinner_row, themes);
         a.setDropDownViewResource(R.layout.aerg);
@@ -175,6 +178,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Intent intent = new Intent(this, Phone.class);
                 startActivity(intent);
+
                 break;
             case R.id.play:
                 play();
@@ -186,6 +190,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.stop:
                 Log.d("mim", "onClick: ");
                 stop();
+                stopPlay();
+
+
 
                 ump = 1;
                 break;

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class Osnova extends AppCompatActivity implements View.OnClickListener {
     Button btn1, btn2, btn3, btn4, btn5, btn21, btn11, btn31, btn41, btn51;
-    MediaPlayer mPlayer;
+
     static Integer[] element = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     static String[] element1 = {"0", "0", "0", "0", "0", "0"};
     static int otvet = 0;
@@ -112,48 +112,21 @@ public class Osnova extends AppCompatActivity implements View.OnClickListener {
         btn51.setText(copyOfend.get(4));
 
 
-        mPlayer = MediaPlayer.create(this, R.raw.music);
-        mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mp) {
-                stopPlay();
-                play();
-            }
-        });
+
         if (MainActivity.ump == 0) {
             play();
         }
     }
 
 
-    private void stopPlay() {
-        mPlayer.stop();
 
-        try {
-            mPlayer.prepare();
-            mPlayer.seekTo(0);
-        } catch (Throwable t) {
-            Toast.makeText(this, t.getMessage(), Toast.LENGTH_SHORT).show();
-        }
-    }
 
     public void play() {
 
-        mPlayer.start();
+        MainActivity.mPlayer.start();
     }
 
-    public void stop() {
-        stopPlay();
-    }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (mPlayer.isPlaying()) {
-            stopPlay();
-
-        }
-    }
 
     public void proverka() {
         if (element[6] != 0 && element[7] != 0 && element[8] != 0 && element[9] != 0 && element[10] != 0) {
@@ -175,6 +148,7 @@ public class Osnova extends AppCompatActivity implements View.OnClickListener {
 
             Intent intent = new Intent(this, Final.class);
             startActivity(intent);
+
 
 
         }
@@ -314,6 +288,16 @@ public class Osnova extends AppCompatActivity implements View.OnClickListener {
         if (n != 0 && m != 0) {
             Log.d("my", "zhest: ");
             if (n == 1) {
+                int a = 0;
+                for (int j = 6; j < 11; j++) {
+                    if (element[j] == n){
+                        a+=1;
+                    }
+                }
+                if(a==0){
+
+
+
                 Log.d("my", "zhest: 1");
 
                 if (m == 6) {
@@ -351,9 +335,19 @@ public class Osnova extends AppCompatActivity implements View.OnClickListener {
 
                     btn1.setBackgroundColor(getResources().getColor(colors[0]));
                 }
+                    ball();
 
-            }
-            if (n == 2) {
+            }}
+            if (n == 2) {int a = 0;
+                for (int j = 6; j < 11; j++) {
+                    if (element[j] == n){
+                        a+=1;
+                    }
+                }
+                if(a==0){
+
+
+
                 Log.d("my", "zhest: 2");
 
                 if (m == 6) {
@@ -391,9 +385,16 @@ public class Osnova extends AppCompatActivity implements View.OnClickListener {
                     btn2.setBackgroundColor(getResources().getColor(colors[0]));
                     btn1.setBackgroundColor(getResources().getColor(colors[0]));
                 }
-
-            }
+                    ball();
+            }}
             if (n == 3) {
+                int a = 0;
+                for (int j = 6; j < 11; j++) {
+                    if (element[j] == n){
+                        a+=1;
+                    }
+                }
+                if(a==0){
                 Log.d("my", "zhest:3 ");
 
                 if (m == 6) {
@@ -432,8 +433,16 @@ public class Osnova extends AppCompatActivity implements View.OnClickListener {
                     btn3.setBackgroundColor(getResources().getColor(colors[0]));
                     btn1.setBackgroundColor(getResources().getColor(colors[0]));
                 }
-            }
+                    ball();
+            }}
             if (n == 4) {
+                int a = 0;
+                for (int j = 6; j < 11; j++) {
+                    if (element[j] == n){
+                        a+=1;
+                    }
+                }
+                if(a==0){
                 Log.d("my", "zhest: 4");
 
                 if (m == 6) {
@@ -471,8 +480,16 @@ public class Osnova extends AppCompatActivity implements View.OnClickListener {
                     btn4.setBackgroundColor(getResources().getColor(colors[0]));
                     btn1.setBackgroundColor(getResources().getColor(colors[0]));
                 }
-            }
+                    ball();
+            }}
             if (n == 5) {
+                int a = 0;
+                for (int j = 6; j < 11; j++) {
+                    if (element[j] == n){
+                        a+=1;
+                    }
+                }
+                if(a==0){
                 Log.d("my", "zhest: 5");
 
                 if (m == 6) {
@@ -509,8 +526,9 @@ public class Osnova extends AppCompatActivity implements View.OnClickListener {
                     btn5.setBackgroundColor(getResources().getColor(colors[0]));
                     btn1.setBackgroundColor(getResources().getColor(colors[0]));
                 }
-            }
-            ball();
+                    ball();
+            }}
+
             n = 0;
             m = 0;
             proverka();
@@ -795,8 +813,10 @@ public class Osnova extends AppCompatActivity implements View.OnClickListener {
         element[m] = n;
 
 
-    }
+    }}
 
-}
+
+
+
 
 

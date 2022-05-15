@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Final extends AppCompatActivity implements View.OnClickListener {
     TextView textView;
-    MediaPlayer mPlayer;
+
     ImageButton buttonh;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,52 +26,19 @@ public class Final extends AppCompatActivity implements View.OnClickListener {
         textView.setOnClickListener( this);
 
         textView.setText(String.valueOf(Osnova.otvet)+"/5");
-        mPlayer= MediaPlayer.create(this, R.raw.music);
-        mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mp) {
-                stopPlay();
-                play();
-            }
-        });
+
         if (MainActivity.ump== 0) {
             play();
         }
     }
-    private void stopPlay(){
-        mPlayer.stop();
 
 
-        try {
-            mPlayer.prepare();
-            mPlayer.seekTo(0);
-
-        }
-        catch (Throwable t) {
-            Toast.makeText(this, t.getMessage(), Toast.LENGTH_SHORT).show();
-        }
-    }
     public void play(){
 
-        mPlayer.start();
+        MainActivity.mPlayer.start();
 
     }
-    public void pause(){
 
-        mPlayer.pause();
-
-    }
-    public void stop(){
-        stopPlay();
-    }
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (mPlayer.isPlaying()) {
-            stopPlay();
-            //как зациклить если можно?
-        }
-    }
 
 
 
@@ -85,6 +52,9 @@ public void onClick( View v) {
             Osnova.element = new Integer[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
             Osnova.element1 = new String[]{"0", "0", "0", "0", "0", "0"};
             Osnova.otvet=0;
+            MainActivity.mPlayer.stop();
+
+            MainActivity.mPlayer = null;
 
 
             Intent intent = new Intent(this, MainActivity.class);

@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Phone extends AppCompatActivity  {
-    MediaPlayer mPlayer;
+
     EditText edit;
     TextView text, Ochared;
     Button button;
@@ -823,6 +823,7 @@ public class Phone extends AppCompatActivity  {
 
 
 
+
                     }}
 
 
@@ -832,14 +833,7 @@ public class Phone extends AppCompatActivity  {
 
 
 
-        mPlayer= MediaPlayer.create(this, R.raw.music);
-        mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mp) {
-                stopPlay();
-                play();
-            }
-        });
+
         if (MainActivity.ump== 0){
         play();
     }}
@@ -851,39 +845,14 @@ public class Phone extends AppCompatActivity  {
     }
 
 
-    private void stopPlay(){
-        mPlayer.stop();
 
-        try {
-            mPlayer.prepare();
-            mPlayer.seekTo(0);
-
-        }
-        catch (Throwable t) {
-            Toast.makeText(this, t.getMessage(), Toast.LENGTH_SHORT).show();
-        }
-    }
 
     public void play(){
 
-        mPlayer.start();
+        MainActivity.mPlayer.start();
     }
 
-    public void stop(){
-        stopPlay();
-    }
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (mPlayer.isPlaying()) {
-            stopPlay();
 
-        }
-    }
-    @Override
-    public void onBackPressed() {
-
-    }
 }
 
 
