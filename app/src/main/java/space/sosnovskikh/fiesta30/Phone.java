@@ -838,10 +838,10 @@ public class Phone extends AppCompatActivity  {
         play();
     }}
     public void swap() {
-        if (!(edit.getText().toString().length() < 2)) {
+
             text.setText(edit.getText().toString());
             edit.setText("");
-        }
+
     }
 
 
