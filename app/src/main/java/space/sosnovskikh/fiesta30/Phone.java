@@ -777,7 +777,7 @@ public class Phone extends AppCompatActivity  {
 
 
                     Ochared.setText("Очередь игрока "+p);
-                    if(p == 2){
+                    if(p == MainActivity.a){
                         p = 0;
                     }
                     p+=1;
