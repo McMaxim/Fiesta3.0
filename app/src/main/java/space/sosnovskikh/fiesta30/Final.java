@@ -56,7 +56,7 @@ public class Final extends AppCompatActivity implements View.OnClickListener {
         point = table2.getPoint();
         stat = table2.getStat();
         number = table2.getNumber();
-        text.setText(String.valueOf(point) + ", " + String.valueOf(stat) +", " + String.valueOf(number));
+        //text.setText(String.valueOf(point) + ", " + String.valueOf(stat) +", " + String.valueOf(number));
         if (MainActivity.ump== 0) {
             play();
         }
