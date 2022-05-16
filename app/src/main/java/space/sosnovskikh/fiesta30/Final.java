@@ -31,26 +31,26 @@ public class Final extends AppCompatActivity implements View.OnClickListener {
         if (database.selectAll().size() == 0) {
             database.insert(0, 0 ,0);
         }
-        Log.d("TAG", "onCreate: ");
+
         Table table = database.select(1);
-        Log.d("TAG", "onCreate:1 ");
+
         int point = table.getPoint(), stat = table.getStat(), number = table.getNumber();
-        Log.d("TAG", "onCreate:2 ");
+
         text.setText(String.valueOf(point) + ", " + String.valueOf(stat) +", " + String.valueOf(number));
-        Log.d("TAG", "onCreate: 3");
+
         Table table1 = new Table();
         int a;
-        Log.d("TAG", "onCreate: 4");
+
         a = database.select(1).getNumber()+1;
-        Log.d("TAG", "onCreate: 5");
+
         table1.setId(1);
 
         table1.setPoint(Osnova.otvet);
-        Log.d("TAG", "onCreate: 6");
+
         table1.setNumber(a);
-        Log.d("TAG", "onCreate: 7");
+
         table1.setStat((0+database.select(1).getStat()+database.select(1).getPoint())/a);
-        Log.d("TAG", "onCreate: 8");
+
         database.update(table1);
         Table table2 = database.select(1);
         point = table2.getPoint();
