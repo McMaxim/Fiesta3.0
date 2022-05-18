@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Final extends AppCompatActivity implements View.OnClickListener {
-    TextView textView,text;
+    TextView textView,text, text1;
     MyDB database;
     ImageButton buttonh;
     @Override
@@ -21,6 +21,7 @@ public class Final extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.final_1);
         text = findViewById(R.id.textView6);
+        text1 = findViewById(R.id.textView8);
         textView = findViewById(R.id.textView7);
         buttonh =findViewById(R.id.button2);
         buttonh.setOnClickListener( this);
@@ -46,7 +47,7 @@ public class Final extends AppCompatActivity implements View.OnClickListener {
 
 
         table1.setStat(a);
-        //table1.setStat((database.select(1).getStat()*database.select(1).getNumber()+database.select(1).getPoint())/(database.select(1).getNumber()+1));
+
         table1.setPoint(Osnova.otvet);
         long s = database.update(table1);
 
@@ -55,7 +56,8 @@ public class Final extends AppCompatActivity implements View.OnClickListener {
         point = table2.getPoint();
         stat = table2.getStat();
         number = table2.getNumber();
-        text.setText(String.valueOf(point) + ", " + String.valueOf(stat) + ", " + String.valueOf(number));
+        text.setText("В среднем за игру вы набираете " + String.valueOf(stat).substring(0, 4) + "/5");
+        text1.setText("всего игр вы сыграли: " + String.valueOf(number));
         if (MainActivity.ump== 0) {
             play();
         }
