@@ -33,30 +33,29 @@ public class Final extends AppCompatActivity implements View.OnClickListener {
         }
 
         Table table = database.select(1);
-
-        int point = table.getPoint(), stat = table.getStat(), number = table.getNumber();
-
-        text.setText(String.valueOf(point) + ", " + String.valueOf(stat) +", " + String.valueOf(number));
-
+        int point = table.getPoint();
+        float stat = table.getStat();
+        int number = table.getNumber();
         Table table1 = new Table();
-        int a;
-
-        a = database.select(1).getNumber()+1;
-
         table1.setId(1);
+        table1.setNumber(database.select(1).getNumber()+1);
+        Log.d("My", "onCreate: "+point);
+        Log.d("My", "onCreate: "+number);
+        float a = (float) (database.select(1).getStat()*database.select(1).getNumber()+Osnova.otvet)/(database.select(1).getNumber()+1);
+        Log.d("My", String.valueOf(a));
 
+
+        table1.setStat(a);
+        //table1.setStat((database.select(1).getStat()*database.select(1).getNumber()+database.select(1).getPoint())/(database.select(1).getNumber()+1));
         table1.setPoint(Osnova.otvet);
+        long s = database.update(table1);
 
-        table1.setNumber(a);
-
-        table1.setStat((0+database.select(1).getStat()+database.select(1).getPoint())/a);
-
-        database.update(table1);
         Table table2 = database.select(1);
+
         point = table2.getPoint();
         stat = table2.getStat();
         number = table2.getNumber();
-        //text.setText(String.valueOf(point) + ", " + String.valueOf(stat) +", " + String.valueOf(number));
+        text.setText(String.valueOf(point) + ", " + String.valueOf(stat) + ", " + String.valueOf(number));
         if (MainActivity.ump== 0) {
             play();
         }

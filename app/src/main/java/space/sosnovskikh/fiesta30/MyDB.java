@@ -15,17 +15,20 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyDB {
+public class
+
+
+MyDB {
     private static final String DATABASE_NAME = "simple.db";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 6;
     private static final String TABLE_NAME = "GG";
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_SRED = "SRED";
     public static final String COLUMN_POINT = "point";
     public static final String COLUMN_NUMBER = "number";
     public static final int NUM_COLUMN_ID = 0;
-    public static final int NUM_COLUMN_POINT = 1;
-    public static final int NUM_COLUMN_SRED = 2;
+    public static final int NUM_COLUMN_POINT = 2;
+    public static final int NUM_COLUMN_SRED = 1;
     public static final int NUM_COLUMN_NUMBER = 3;
     private SQLiteDatabase dataBase;
 
@@ -42,7 +45,7 @@ public class MyDB {
             table = new Table();
             table.setId(cursor.getLong(NUM_COLUMN_ID));
             table.setPoint(cursor.getInt(NUM_COLUMN_POINT));
-            table.setStat(cursor.getInt(NUM_COLUMN_SRED));
+            table.setStat(cursor.getFloat(NUM_COLUMN_SRED));
             table.setNumber(cursor.getInt(NUM_COLUMN_NUMBER));
             cursor.close();
             return table;
@@ -117,8 +120,9 @@ public class MyDB {
         public void onCreate(SQLiteDatabase db) {
             String query = "CREATE TABLE " + TABLE_NAME + " (" +
                     COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    COLUMN_SRED + " INTEGER, " + COLUMN_NUMBER + " INTEGER, " +
-                    COLUMN_POINT + " INTEGER);";
+                    COLUMN_SRED + " FLOAT, " +
+                    COLUMN_POINT + " INTEGER, " +
+                    COLUMN_NUMBER + " INTEGER);";
             Log.d("My", query);
             db.execSQL(query);
         }

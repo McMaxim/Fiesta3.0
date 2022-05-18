@@ -4,7 +4,7 @@ import androidx.core.app.Person;
 
 public class Table {
     private long id;
-    private int stat;
+    private float stat;
     private int point;
     private int number;
 
@@ -23,7 +23,7 @@ public class Table {
     public long getId() {
         return id;
     }
-    public int getStat() {
+    public float getStat() {
         return stat;
     }
     public int getNumber() {
@@ -41,7 +41,7 @@ public class Table {
         this.id = id;
     }
 
-    public void setStat(int stat) {
+    public void setStat(float stat) {
         this.stat = stat;
     }
 
