@@ -3,6 +3,7 @@ package space.sosnovskikh.fiesta30;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +21,7 @@ public class Phone extends AppCompatActivity  {
     EditText edit;
     TextView text, Ochared;
     Button button;
+    final Handler handler = new Handler();
     List list =  new ArrayList<Integer>();
     public static List<String> tema = new ArrayList<String>();
     public static List<String> end= new ArrayList<String>();
@@ -800,7 +802,15 @@ public class Phone extends AppCompatActivity  {
                         Log.d("my", "value: "+edit.getText().toString());
                         Log.d("my", "elem: "+end.get(w / MainActivity.a));
                         edit.setText("");
-                        text.setText( tema.get(w /(MainActivity.a)));
+                        text.setText( " ");
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                // Do something after 5s = 5000ms
+                                text.setText( tema.get(w /(MainActivity.a)));
+                            }
+                        }, 3000);
+
                     }
 
                     Log.d("my",  x+","+w+","+MainActivity.a);

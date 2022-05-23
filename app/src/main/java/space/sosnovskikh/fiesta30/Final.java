@@ -56,7 +56,7 @@ public class Final extends AppCompatActivity implements View.OnClickListener {
         point = table2.getPoint();
         stat = table2.getStat();
         number = table2.getNumber();
-        text.setText("В среднем за игру вы набираете " + String.valueOf(stat).substring(0, 4) + "/5");
+        text.setText("В среднем за игру вы набираете " + Math.floor(10 * stat) / 10 + "/5");
         text1.setText("всего игр вы сыграли: " + String.valueOf(number));
         if (MainActivity.ump== 0) {
             play();

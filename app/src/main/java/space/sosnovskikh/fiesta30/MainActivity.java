@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public static Integer a = 2;
     int[] myArray = new int[5];
-    static final String[] themes = {"фильмы","работа","хобби","домашние животные","путешествие","спорт"};
+    static final String[] themes = {"фильмы","работа","хобби","животные","поездка","спорт"};
 
     static int getThemes() {
         return  num;
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 ((TextView) parent.getChildAt(0)).setTextColor(getColor(R.color.white));
-                ((TextView) parent.getChildAt(0)).setTextSize(40);
+                ((TextView) parent.getChildAt(0)).setTextSize(60);
                 ((TextView) parent.getChildAt(0)).setGravity(Gravity.CENTER);
                 Typeface type = Typeface.createFromAsset(getAssets(), "fonts/ri00.ttf");
                 ((TextView) parent.getChildAt(0)).setTypeface(type);
