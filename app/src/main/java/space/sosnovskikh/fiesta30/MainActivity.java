@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 ((TextView) parent.getChildAt(0)).setTextColor(getColor(R.color.white));
-                ((TextView) parent.getChildAt(0)).setTextSize(60);
+                ((TextView) parent.getChildAt(0)).setTextSize(40);
                 ((TextView) parent.getChildAt(0)).setGravity(Gravity.CENTER);
                 Typeface type = Typeface.createFromAsset(getAssets(), "fonts/ri00.ttf");
                 ((TextView) parent.getChildAt(0)).setTypeface(type);
