@@ -861,6 +861,10 @@ public class Phone extends AppCompatActivity  {
 
         MainActivity.mPlayer.start();
     }
+    @Override
+    public void onBackPressed() {
+
+    }
 
 
 }

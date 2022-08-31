@@ -813,7 +813,13 @@ public class Osnova extends AppCompatActivity implements View.OnClickListener {
         element[m] = n;
 
 
-    }}
+    }
+    @Override
+    public void onBackPressed() {
+
+    }
+
+}
 
 
 
