@@ -11,6 +11,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ImageButton playbutton;
     ImageButton leftbutton;
     ImageButton rightbutton;
+    Button button3;
 
     ImageButton play;
     ImageButton stop;
@@ -68,6 +70,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         leftbutton.setOnClickListener(this);
         rightbutton = findViewById(R.id.rightbutton);
         rightbutton.setOnClickListener(this);
+        button3 = findViewById(R.id.button3);
+        button3.setOnClickListener(this);
+
 
         String[] list = getResources().getStringArray(R.array.list);
         spinner = findViewById(R.id.themes);
@@ -159,6 +164,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch(v.getId()){
+            case R.id.button3:
+                Intent intent = new Intent(MainActivity.this, Rules.class);
+                startActivity(intent);
+                break;
+
             case R.id.leftbutton:
                 a -= 1;
                 if (a==1){
@@ -176,8 +186,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.playbutton:
 
-                Intent intent = new Intent(this, Phone.class);
-                startActivity(intent);
+                Intent intent1 = new Intent(MainActivity.this, Phone.class);
+                startActivity(intent1);
 
                 break;
             case R.id.play:

@@ -24,10 +24,9 @@
         android:textSize="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.09" />
+        app:layout_constraintVertical_bias="0.074" />
 
     <ImageButton
         android:id="@+id/playbutton"
@@ -174,6 +173,22 @@
         app:layout_constraintTop_toBottomOf="@+id/themes"
         app:layout_constraintVertical_bias="0.612"
         app:srcCompat="@android:drawable/ic_media_pause" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="150dp"
+        android:layout_height="33dp"
+        android:background="@color/c1"
+        android:text="Правила"
+        android:textSize="20dp"
+        android:fontFamily="@font/ri0"
+        android:textColor="@color/c0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.282" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
